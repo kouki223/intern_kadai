@@ -1,7 +1,17 @@
 <?php
 return array(
-	'_root_'  => 'welcome/index',  // The default route
-	'_404_'   => 'welcome/404',    // The main 404 route
-	
-	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
+	// ルーティング設定
+	'_root_' => 'notes/index', // デフォルトのルート
+	//ノート機能のルーティングとユーザー機能におけるルーティングを準備する
+	//Viewが必要になるルーティングとViewの必要ないルーティングが存在する
+
+	//ユーザー機能関連
+	'users/login' => 'users/login',
+	'register' => array('user/register'),
+	'logout'   => array('user/logout'),
+
+	//ノート機能関連
+	'notes' => 'notes/index',
+    'notes/view/(:num)' => 'notes/view/$1',
 );
+?>
