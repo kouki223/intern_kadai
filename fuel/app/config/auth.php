@@ -11,5 +11,3 @@ return array(
     'salt' => 'soccer', // パスワードのハッシュ化に加えたセキュリティ
     'iterations' => '10000',
 );
-
-?>

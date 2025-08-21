@@ -22,3 +22,18 @@ require COREPATH.'bootstrap.php';
 
 // Initialize the framework with the config file.
 \Fuel::init('config.php');
+
+switch (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : ''){
+    case 'production.co.jp':
+        //本番
+        Fuel::$env = Fuel::PRODUCTION;
+        break;
+    case 'staging.co.jp':
+        //テスト環境 
+        Fuel::$env = Fuel::STAGING;
+        break;
+    default:
+        //ローカル環境
+        Fuel::$env = Fuel::DEVELOPMENT;
+        break;
+}

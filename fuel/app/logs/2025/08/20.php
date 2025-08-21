@@ -165,3 +165,84 @@ WARNING - 2025-08-20 17:56:18 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2025-08-20 17:56:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2025-08-20 17:58:02 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
 WARNING - 2025-08-20 17:58:02 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 10:40:47 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 10:40:47 --> Fatal Error - Uncaught Fuel\Core\PhpErrorException: Constant Fuel\Core\E_STRICT is deprecated in /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php:70
+Stack trace:
+#0 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php(163): [constant expression]()
+#1 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php(103): Fuel\Core\Errorhandler::error_handler(8192, 'Constant Fuel\\C...', '/Users/mutsu/HR...', 70)
+#2 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php(125): {closure:/Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php:90}(8192, 'Constant Fuel\\C...', '/Users/mutsu/HR...', 70)
+#3 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php(87): Fuel\Core\Errorhandler::exception_handler(Object(ParseError))
+#4 [internal function]: {closure:/Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php:74}(Object(ParseError))
+#5 {main}
+  thrown in /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php on line 70
+WARNING - 2025-08-20 10:41:29 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 10:41:29 --> Fatal Error - Uncaught Fuel\Core\PhpErrorException: Constant Fuel\Core\E_STRICT is deprecated in /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php:70
+Stack trace:
+#0 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php(163): [constant expression]()
+#1 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php(103): Fuel\Core\Errorhandler::error_handler(8192, 'Constant Fuel\\C...', '/Users/mutsu/HR...', 70)
+#2 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php(125): {closure:/Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php:90}(8192, 'Constant Fuel\\C...', '/Users/mutsu/HR...', 70)
+#3 /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php(87): Fuel\Core\Errorhandler::exception_handler(Object(ParseError))
+#4 [internal function]: {closure:/Users/mutsu/HR_Cloud/intern_kadai/fuel/core/bootstrap.php:74}(Object(ParseError))
+#5 {main}
+  thrown in /Users/mutsu/HR_Cloud/intern_kadai/fuel/core/classes/errorhandler.php on line 70
+WARNING - 2025-08-20 20:19:44 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:19:44 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:20:13 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:20:13 --> Error - Class 'Orm\Model' not found in /var/www/html/my_fuel_project/fuel/packages/auth/classes/model/auth/user.php on line 17
+WARNING - 2025-08-20 20:20:13 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:21:10 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:21:10 --> Error - Class 'Orm\Model' not found in /var/www/html/my_fuel_project/fuel/packages/auth/classes/model/auth/user.php on line 17
+WARNING - 2025-08-20 20:21:10 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:24:29 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:24:30 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:24:30 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:27:12 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:27:12 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:27:12 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:35:01 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:35:01 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:35:01 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:35:38 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:35:38 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:35:38 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:36:05 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:36:05 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:36:05 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:39:38 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:39:38 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:39:38 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:40:16 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:40:16 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:40:16 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:42:53 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:42:53 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:42:53 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:43:11 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:43:11 --> Warning - mysqli::__construct(): (HY000/1049): Unknown database 'fuelphp' in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:43:11 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:45:49 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:45:50 --> 1146 - Table 'memoapp.users' doesn't exist [ SELECT `t0`.`id` AS `t0_c0`, `t0`.`username` AS `t0_c1`, `t0`.`email` AS `t0_c2`, `t0`.`group` AS `t0_c3`, `t0`.`password` AS `t0_c4`, `t0`.`profile_fields` AS `t0_c5`, `t0`.`last_login` AS `t0_c6`, `t0`.`login_hash` AS `t0_c7`, `t0`.`created_at` AS `t0_c8`, `t0`.`updated_at` AS `t0_c9` FROM `users` AS `t0` WHERE `t0`.`email` IS null LIMIT 1 ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-20 20:45:50 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:46:12 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:46:12 --> 1146 - Table 'memoapp.users' doesn't exist [ SELECT `t0`.`id` AS `t0_c0`, `t0`.`username` AS `t0_c1`, `t0`.`email` AS `t0_c2`, `t0`.`group` AS `t0_c3`, `t0`.`password` AS `t0_c4`, `t0`.`profile_fields` AS `t0_c5`, `t0`.`last_login` AS `t0_c6`, `t0`.`login_hash` AS `t0_c7`, `t0`.`created_at` AS `t0_c8`, `t0`.`updated_at` AS `t0_c9` FROM `users` AS `t0` WHERE `t0`.`email` IS null LIMIT 1 ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-20 20:46:12 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 20:47:29 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:47:29 --> Warning - mysqli::__construct(): (HY000/2002): No such file or directory in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:48:29 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:48:29 --> Warning - mysqli::__construct(): (HY000/2002): No such file or directory in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:50:31 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:50:31 --> Warning - mysqli::__construct(): (HY000/2002): No such file or directory in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:50:36 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:50:36 --> Warning - mysqli::__construct(): (HY000/2002): No such file or directory in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:51:04 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:51:04 --> Warning - mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:52:11 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:52:11 --> Warning - mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:52:47 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:52:47 --> Warning - mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 20:53:25 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 20:53:25 --> Warning - mysqli::__construct(): (HY000/2002): No such file or directory in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 21:00:08 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-20 21:00:09 --> Warning - mysqli::__construct(): (HY000/2002): Connection refused in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 131
+WARNING - 2025-08-20 12:04:20 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-20 12:05:32 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.

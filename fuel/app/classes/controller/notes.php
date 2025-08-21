@@ -2,11 +2,11 @@
 class Controller_Notes extends Controller_Base
 {
 
-    public function before()//未ログインの場合は login ページにリダイレクトするようにbeforeを使用する
+    public function before()//未ログインの場合は新規登録ページにリダイレクトするようにbeforeを使用する
     {
         parent::before();
         if (!Auth::check()) {
-            Response::redirect('users/login');
+            Response::redirect('users/register');
         }
     }
 

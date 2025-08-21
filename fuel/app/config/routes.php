@@ -6,9 +6,11 @@ return array(
 	//Viewが必要になるルーティングとViewの必要ないルーティングが存在する
 
 	//ユーザー機能関連
-	'users/login' => 'users/login',
-	'register' => array('user/register'),
-	'logout'   => array('user/logout'),
+	'users/login' => 'users/login',// ログイン画面
+	'users/check_email' => 'users/check_email',// メールアドレス確認処理
+	'users/password_login' => 'users/password_login',// パスワードログイン処理
+	'users/register' => 'users/register',// ユーザー登録画面
+	'logout'   => 'users/logout',// ログアウト処理
 
 	//ノート機能関連
 	'notes' => 'notes/index',
