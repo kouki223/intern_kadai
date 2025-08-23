@@ -7,7 +7,7 @@ return array(
     'default' => array(
         'type'        => 'mysqli',
         'connection'  => array(
-            'hostname'   => 'db',
+            'hostname'   => 'docker-db-1',
             'port'       => 3306,
             'database'   => 'memoapp',
             'username'   => 'root',

@@ -10,6 +10,7 @@ return array(
 	'users/check_email' => 'users/check_email',// メールアドレス確認処理
 	'users/password_login' => 'users/password_login',// パスワードログイン処理
 	'users/register' => 'users/register',// ユーザー登録画面
+	'users/create' => 'users/create',// ユーザー登録処理
 	'logout'   => 'users/logout',// ログアウト処理
 
 	//ノート機能関連

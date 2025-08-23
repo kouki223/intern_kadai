@@ -12,8 +12,6 @@ class Controller_Users extends Controller_Base
         $this->template->title = 'ログイン(初期画面)';
         $this->template->content = View::forge('users/login');
 
-        $hashed = Auth::hash_password('test1234');
-
     }
 
     public function action_check_email()
@@ -66,7 +64,10 @@ class Controller_Users extends Controller_Base
     {
         $this->template->title = '新規登録';
         $this->template->content = View::forge('users/register');
+    }
 
+    public function action_create()
+    {
         // POSTリクエストで新規登録情報を受け取る
         $email = Input::post('email');
         $password = Input::post('password');
@@ -74,10 +75,14 @@ class Controller_Users extends Controller_Base
         // Model_Userのcreate_userメソッドを使用して新規登録処理を行う
         if (Model_User::create_user($email, $password)) {
             Session::set_flash('success', '新規登録が完了しました。ノート一覧にリダイレクトします。');
-            return $this->response(['success' => true, 'redirect' => Uri::create('notes/index')]);
+            return Response::forge(json_encode(['success' => true, 'redirect' => Uri::create('notes')
+        ]),array('Content-Type' => 'application/json'));
         } else {
             Session::set_flash('error', '新規登録に失敗しました。');
-            return $this->response(['success' => false, 'message' => '新規登録に失敗しました。']);
+            return Response::forge(json_encode([
+            'success' => false,
+            'message' => '新規登録に失敗しました。'
+        ]))->set_content_type('application/json');
         }
     }
 

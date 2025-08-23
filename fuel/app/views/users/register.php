@@ -1,10 +1,8 @@
-<h1>新規登録画面(register)</h1>
+<h1>新規登録</h1>
 
-<p>新規登録のためのフォームをここに配置します。</p>
-
-<form action="users/register" method="post">
+<form action="<?php echo Uri::create('users/create'); ?>"  method="post">
     <label for="email">メールアドレス:</label>
-    <input type="email" id="email" name="email" value="test@example.com" required>
+    <input type="email" id="email" name="email" required>
     
     <label for="password">パスワード:</label>
     <input type="password" id="password" name="password" required>

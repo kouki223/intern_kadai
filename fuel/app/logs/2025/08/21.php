@@ -271,3 +271,104 @@ WARNING - 2025-08-21 18:53:03 --> Fuel\Core\Fuel::init - The configured locale j
 WARNING - 2025-08-21 18:58:58 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
 ERROR - 2025-08-21 18:58:58 --> 1048 - Column 'email' cannot be null [ INSERT INTO `users` (`email`, `password`) VALUES (null, 'QcoN45oQcHeYCcrFq4YAVel0a6qdqzNC1dg3DivqxXU=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
 WARNING - 2025-08-21 18:58:58 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:02:49 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 19:02:49 --> 1048 - Column 'email' cannot be null [ INSERT INTO `users` (`email`, `password`) VALUES (null, 'QcoN45oQcHeYCcrFq4YAVel0a6qdqzNC1dg3DivqxXU=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 19:19:35 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 19:19:36 --> 1048 - Column 'email' cannot be null [ INSERT INTO `users` (`email`, `password`) VALUES (null, 'QcoN45oQcHeYCcrFq4YAVel0a6qdqzNC1dg3DivqxXU=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 19:22:13 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:22:37 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:22:47 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:24:33 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:25:10 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:25:22 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:26:03 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:27:12 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:27:19 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:27:30 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:53:44 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:53:56 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:54:05 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:54:49 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:58:08 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 19:59:41 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:02:31 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:04:50 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:06:03 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:20 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:28 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:33 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:37 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:38 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:40 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:40 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:41 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:41 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:43 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:44 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:45 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:12:50 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:12:50 --> Error - Call to undefined method Controller_Users::response() in /var/www/html/my_fuel_project/fuel/app/classes/controller/users.php on line 80
+WARNING - 2025-08-21 20:14:18 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:14:18 --> 1062 - Duplicate entry 'kouki.1818194@gmail.com' for key 'users.email' [ INSERT INTO `users` (`email`, `password`) VALUES ('kouki.1818194@gmail.com', 'oDmkjxg204QJ8cj0b8QntDJNf00jpBhl5daxgOTkGAc=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 20:14:39 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:14:45 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:16:08 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:16:16 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:17:31 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:17:31 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:17:40 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:17:40 --> 1062 - Duplicate entry 'kouki.1818194@gmail.com' for key 'users.email' [ INSERT INTO `users` (`email`, `password`) VALUES ('kouki.1818194@gmail.com', 'oDmkjxg204QJ8cj0b8QntDJNf00jpBhl5daxgOTkGAc=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 20:17:40 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:21:13 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:21:13 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:21:16 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:21:16 --> 1062 - Duplicate entry 'kouki.1818194@gmail.com' for key 'users.email' [ INSERT INTO `users` (`email`, `password`) VALUES ('kouki.1818194@gmail.com', 'oDmkjxg204QJ8cj0b8QntDJNf00jpBhl5daxgOTkGAc=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 20:21:16 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:21:57 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:21:57 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:21:57 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:32:50 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:32:50 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:32:51 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:33:02 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:34:52 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:34:52 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:35:42 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:35:42 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:35:47 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:35:47 --> 1062 - Duplicate entry 'kouki.1818194@gmail.com' for key 'users.email' [ INSERT INTO `users` (`email`, `password`) VALUES ('kouki.1818194@gmail.com', 'oDmkjxg204QJ8cj0b8QntDJNf00jpBhl5daxgOTkGAc=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 20:35:47 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:42:22 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:42:22 --> 1062 - Duplicate entry 'kouki.1818194@gmail.com' for key 'users.email' [ INSERT INTO `users` (`email`, `password`) VALUES ('kouki.1818194@gmail.com', 'oDmkjxg204QJ8cj0b8QntDJNf00jpBhl5daxgOTkGAc=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 20:42:22 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:44:52 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:44:52 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:44:54 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:44:55 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:46:52 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:46:53 --> Error - Call to undefined method Controller_Users::response() in /var/www/html/my_fuel_project/fuel/app/classes/controller/users.php on line 78
+WARNING - 2025-08-21 20:46:53 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:50:22 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:50:22 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:50:26 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:50:27 --> 1062 - Duplicate entry 'admin@example.com' for key 'users.email' [ INSERT INTO `users` (`email`, `password`) VALUES ('admin@example.com', 'vhAmVFhFaR40vSTUIcmOaNDCNknNbV4uTK2YpK45K6g=') ] in /var/www/html/my_fuel_project/fuel/core/classes/database/mysqli/connection.php on line 292
+WARNING - 2025-08-21 20:50:27 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:50:32 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:50:32 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:50:50 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+ERROR - 2025-08-21 20:50:50 --> Error - Call to undefined method Fuel\Core\Response::set_content_type() in /var/www/html/my_fuel_project/fuel/app/classes/controller/users.php on line 79
+WARNING - 2025-08-21 20:50:50 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:56:19 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:56:19 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:56:25 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:56:25 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:03 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:03 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:03 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:30 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:30 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:31 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:31 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:42 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:42 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
+WARNING - 2025-08-21 20:57:47 --> Fuel\Core\Fuel::init - The configured locale ja-JP.UTF-8 is not installed on your system.
