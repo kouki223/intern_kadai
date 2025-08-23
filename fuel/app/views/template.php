@@ -22,7 +22,7 @@
         <?php echo $content; ?>
     </main>
 	<footer>
-		<div>copy : This app made by kouki(2025/8/19~){共通フッター}</div>
+		<div>copy : This app made by kouki(2025/8/19~)</div>
 	</footer>
 </body>
 </html>
