@@ -111,10 +111,7 @@ class Controller_Users extends Controller_Base
 
         if (Model_User::create_user($username, $password)) {
             if (Auth::login($username, $password)) {
-                return Response::forge(json_encode([
-                    'success' => true,
-                    'redirect' => Uri::create('/notes/index')
-                ]))->set_header('Content-Type', 'application/json');
+                return Response::redirect('/notes/index');
             } else {
                 return Response::forge(json_encode([
                     'success' => false,
