@@ -332,3 +332,9 @@ WARNING - 2025-08-26 20:10:04 --> Fuel\Core\Fuel::init - The configured locale j
 WARNING - 2025-08-26 20:10:12 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
 WARNING - 2025-08-26 20:10:12 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
 WARNING - 2025-08-26 20:10:12 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
+WARNING - 2025-08-26 20:16:51 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
+WARNING - 2025-08-26 20:16:51 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
+WARNING - 2025-08-26 20:16:52 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
+WARNING - 2025-08-26 20:16:53 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
+WARNING - 2025-08-26 20:16:53 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.
+WARNING - 2025-08-26 20:16:53 --> Fuel\Core\Fuel::init - The configured locale ja_JP.utf8 is not installed on your system.

@@ -102,6 +102,10 @@ class Controller_Users extends Controller_Base
     {
         $this->template->title = '新規登録';
         $this->template->content = View::forge('users/register');
+
+        if (Auth::check()) {
+            Response::redirect('notes/index');
+        }
     }
 
     public function post_create()
