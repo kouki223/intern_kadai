@@ -43,12 +43,12 @@ return array(
 	 */
 	// 'index_file' => false,
 
-	// 'profiling'  => false,
+	'profiling'  => true,
 
 	/**
 	 * Default location for the file cache
 	 */
-	// 'cache_dir'       => APPPATH.'cache/',
+	'cache_dir'       => APPPATH.'cache/',
 
 	/**
 	 * Settings for the file finder cache (the Cache class has it's own config!)
@@ -79,7 +79,7 @@ return array(
 	 */
 	'language'           => 'ja', // Default language
 	// 'language_fallback'  => 'en', // Fallback language when file isn't available for default language
-	'locale'             => 'ja-JP.UTF-8', // PHP set_locale() setting, null to not set
+	'locale'             => 'ja_JP.utf8', // PHP set_locale() setting, null to not set
 	
 	/**
 	 * Internal string encoding charset

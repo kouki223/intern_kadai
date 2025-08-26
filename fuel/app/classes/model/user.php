@@ -5,31 +5,36 @@ use Auth\Auth;
 class Model_User extends \Orm\Model
 {
     // ユーザログイン認証関連
-    public static function find_by_email($email)
+    public static function find_by_username($username)
     {
         // DBからメールアドレスに一致するユーザを検索(DBクラスのクエリビルダーを使用)
-        return DB::SELECT('id', 'email', 'password') -> from('users')
-            -> where('email', '=', $email)
+        $result = DB::SELECT('id', 'username', 'password', 'email') -> from('users')
+            -> where('username', '=', $username)
             -> execute()
             -> as_array();// 結果を連想配列としてkeyにはカラムの値を、値にはDBのデータを格納して返してもらう
+
+        if (empty($result)) {
+            return null;
+        }
+        return $result[0];
     }
 
-    // コントローラーからPOSTリクエストで受け取ったメールアドレスとパスワードを受け取って検証する
-    public static function verify_password($email, $password)
+    // コントローラーからPOSTリクエストで受け取ったユーザー名とパスワードを受け取って検証する
+    public static function verify_password($username, $password)
     {
         // DBからメールアドレスに一致するユーザを検索し変数userに格納
-        $user = self::find_by_email($email);
+        $user = self::find_by_username($username);
 
-        // 事前に一度emailは検証しているが、再度、emailが存在するか検証する
-        if (! $user) {
-            return false; // ユーザ(email)が存在しない場合はfalseを返す
+        if (validate_user($username = $user['username'], $password = $user['password'])) {
+            $user_id = $user['id'];
+            return Auth::force_login($user_id);
+        } else {
+            return false;
         }
-
-        // Authクラスのverify_passwordメソッドを使用して、パスワードを検証
-        return Auth::verify_password($password, $user['password']);   
     }
+
     // 新規登録
-    public static function create_user($email, $password)
+    public static function create_user($username, $password)
     {
         // パスワードのハッシュ化
         $hashed_password = Auth::hash_password($password);
@@ -37,7 +42,7 @@ class Model_User extends \Orm\Model
         // DBに新規ユーザを挿入(挿入するテーブルとカラムを指定する)
         $result = DB::insert('users')
             ->set(array(
-                'email' => $email,
+                'username' => $username,
                 'password' => $hashed_password,
             ))
             ->execute();// クエリの実行
@@ -46,6 +51,8 @@ class Model_User extends \Orm\Model
         if (!$result) {
             return false; // 挿入が失敗した場合はfalseを返す
         }
+        // 挿入されたユーザーIDで強制ログイン
+        Auth::force_login($result[0]); 
         // 挿入が成功した場合はtrueを返す
         return $result[1] > 0; // $result[1]は挿入された行数
     }
