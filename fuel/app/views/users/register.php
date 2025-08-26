@@ -1,8 +1,8 @@
 <h1>新規登録</h1>
 
 <form action="<?php echo Uri::create('users/create'); ?>"  method="post">
-    <label for="email">メールアドレス:</label>
-    <input type="email" id="email" name="email" required>
+    <label for="username">ユーザー名:</label>
+    <input type="text" id="username" name="username" required>
     
     <label for="password">パスワード:</label>
     <input type="password" id="password" name="password" required>

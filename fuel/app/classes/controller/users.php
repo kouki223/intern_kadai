@@ -3,60 +3,98 @@ use Auth\Auth;
 
 class Controller_Users extends Controller_Base
 {
-
-    protected $format = 'json'; // レスポンスフォーマットをJSONに設定
-
     public function action_login()
     {
-
         $this->template->title = 'ログイン(初期画面)';
         $this->template->content = View::forge('users/login');
-
     }
 
-    public function action_check_email()
+    public function post_check_username()
     {
-
-        $this->template->title = 'ログイン(email)';
-
-        // POSTリクエストでメールアドレスを受け取る
-        $email = Input::post('email');
-
-        // Model_Userを使用してPOSTされたメールアドレスに対応するレコードを変数userに格納
-        $user = Model_User::find_by_email($email);
-
-        // Model_Userのfind_by_emailメソッドで、POSTリクエストで受け取ったメールアドレスに一致するレコードをDBから検索し、結果を配列として返す
-        if ($user)
-        {
-            return $this->response(['success' => true]);
+        $this->is_api_request = true;
+    
+        try {
+            $username = Input::post('username');
+        
+            if (empty($username)) {
+                $response = [
+                    'success' => false,
+                    'message' => 'メールアドレスが入力されていません'
+                ];
+            } else {
+                $user = Model_User::find_by_username($username);
+            
+                if ($user) {
+                    $response = ['success' => true];
+                } else {
+                    $response = [
+                        'success' => false,
+                        'message' => 'ユーザーが登録されていません。'
+                    ];
+                }
+            }
+            // JSONレスポンスを返す
+            return Response::forge(json_encode($response))
+                ->set_header('Content-Type', 'application/json')
+                ->set_header('Cache-Control', 'no-cache');
         }
-        else
-        {
-            return $this->response(['success' => false, 'message' => 'メールアドレスが登録されていません。']);
+        catch (Exception $e){
+        // エラーログを出力
+            Log::error('Check userame error: ' . $e->getMessage());
+        
+        return Response::forge(json_encode([
+            'success' => false,
+            'message' => 'サーバーエラーが発生しました'
+        ]))->set_header('Content-Type', 'application/json');
         }
     }
 
-    public function action_password_login()
+    public function post_password_login()
     {
+        $this->is_api_request = true;
 
-        $this->template->title = 'ログイン(パスワード)';
-
-        // POSTリクエストでログイン情報を受け取る
-        $email = Input::post('email');
+    try {
+        $username = Input::post('username');
         $password = Input::post('password');
+        $hashed_input = Auth::instance()->hash_password($password);
 
-        // Authパッケージでパスワードを検証したいが,emailを要件に使うためまずはModel_Userのverify_passwordメソッドを使用する
-        if (Model_User::verify_password($email, $password)) {
+        $user = Model_User::find_by_username($username);
 
-            // 取得したレコードからユーザーIDを指定して強制ログイン
-            Auth::force_login($user['id']);
+        // emailの存在確認
+        if ($user) {
+            $stored_password = $user['password'];
 
-            Session::set_flash('success', 'ログインに成功しました。');
-            return $this->response(['success' => true, 'redirect' => Uri::create('notes/index')]);
-        }else {
-            // ログイン失敗時の処理
-            Session::set_flash('error', 'パスワードが間違っています。');
-            return $this->response(['success' => false, 'message' => 'パスワードが間違っています。']);
+            if ($hashed_input === $stored_password) {
+                $user_id = $user['id'];
+                Auth::force_login($user_id);
+
+                return Response::forge(json_encode([
+                    'success' => true,
+                    'redirect' => Uri::create('/notes/index')
+                ]))->set_header('Content-Type', 'application/json');
+            } else {
+                // パスワード不一致
+                return Response::forge(json_encode([
+                    'success' => false,
+                    'message' => 'パスワードが正しくありません。'
+                ]))->set_header('Content-Type', 'application/json');
+            }
+        } else {
+            // ユーザーが存在しない
+            return Response::forge(json_encode([
+                'success' => false,
+                'message' => 'メールアドレスが登録されていません。'
+            ]))->set_header('Content-Type', 'application/json');
+        }
+        }
+        catch (Exception $e) {
+            // エラーログを出力
+            Log::error('Login error: ' . $e->getMessage());
+
+            return Response::forge(json_encode([
+                'success' => false,
+                'message' => 'サーバーエラーが発生しました'
+            ]))->set_header('Content-Type', 'application/json');
         }
     }
 
@@ -66,32 +104,35 @@ class Controller_Users extends Controller_Base
         $this->template->content = View::forge('users/register');
     }
 
-    public function action_create()
+    public function post_create()
     {
-        // POSTリクエストで新規登録情報を受け取る
-        $email = Input::post('email');
+        $username = Input::post('username');
         $password = Input::post('password');
 
-        // Model_Userのcreate_userメソッドを使用して新規登録処理を行う
-        if (Model_User::create_user($email, $password)) {
-            Session::set_flash('success', '新規登録が完了しました。ノート一覧にリダイレクトします。');
-            return Response::forge(json_encode(['success' => true, 'redirect' => Uri::create('notes')
-        ]),array('Content-Type' => 'application/json'));
-        } else {
-            Session::set_flash('error', '新規登録に失敗しました。');
+        if (Model_User::create_user($username, $password)) {
+            if (Auth::login($username, $password)) {
+                return Response::forge(json_encode([
+                    'success' => true,
+                    'redirect' => Uri::create('/notes/index')
+                ]))->set_header('Content-Type', 'application/json');
+            } else {
+                return Response::forge(json_encode([
+                    'success' => false,
+                    'message' => '自動ログインに失敗しました。'
+                ]))->set_header('Content-Type', 'application/json');
+            }
+        }else {
             return Response::forge(json_encode([
-            'success' => false,
-            'message' => '新規登録に失敗しました。'
-        ]))->set_content_type('application/json');
+                'success' => false,
+                'message' => '新規登録に失敗しました。'
+            ]))->set_header('Content-Type', 'application/json');
         }
     }
 
     public function action_logout()
     {
-        // ログアウト処理
         Auth::logout();
         Response::redirect('users/login');
     }
-
 }
 ?>

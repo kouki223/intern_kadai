@@ -1,13 +1,9 @@
 <?php
-/**
- * The development database settings. These get merged with the global settings.
- */
-
 return array(
     'default' => array(
         'type'        => 'mysqli',
         'connection'  => array(
-            'hostname'   => 'docker-db-1',
+            'hostname'   => 'db',
             'port'       => 3306,
             'database'   => 'memoapp',
             'username'   => 'root',

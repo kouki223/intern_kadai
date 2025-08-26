@@ -14,6 +14,7 @@ class Controller_Notes extends Controller_Base
     {
         $this->template->title   = 'ノート一覧';
         $this->template->content = View::forge('notes/index');
+
     }
 
     public function action_detail()
