@@ -4,6 +4,15 @@ use Auth\Auth;
 
 class Model_User extends \Orm\Model
 {
+
+    protected static $_properties = array(
+        'id', 
+        'username',
+        'password',
+        'created_at',
+        'updated_at',
+    );
+    
     // ユーザログイン認証関連
     public static function find_by_username($username)
     {
