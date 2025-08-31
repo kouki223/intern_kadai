@@ -7,6 +7,7 @@ class Controller_Users extends Controller_Base
     {
         $this->template->title = 'ログイン(初期画面)';
         $this->template->content = View::forge('users/login');
+        $this->template->page = "login";
 
         if (Auth::check()) {
             Response::redirect('notes/index');

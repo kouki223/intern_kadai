@@ -1,4 +1,6 @@
-<h1>ログイン画面</h1>
+<!DOCTYPE html>
+<html lang="ja">
+<body data-page="login-page">
 
 <div data-bind="visible: step() === 'username'">
     <h2>ログイン</h2>
@@ -13,3 +15,4 @@
     <button data-bind="click: passwordLogin">ログイン</button>
     <p data-bind="text: errorMessage, visible: errorMessage"></p>
 </div>
+</html>
