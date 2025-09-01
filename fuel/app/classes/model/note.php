@@ -30,37 +30,37 @@ class Model_Note extends \Orm\Model
         return $result;
     }
 
-    public static function find_by_user_and_id($user_id, $note_id)
+    public static function find_by_user_and_id($user_id, $id)
     {
         // DBから指定されたユーザーIDとノートIDに一致する最初のノートを検索して返す
         $result = DB::SELECT('id', 'user_id', 'title', 'content', 'created_at', 'updated_at')
             -> from('notes')
             -> where('user_id', '=', $user_id)
-            -> and_where('id', '=', $note_id)
+            -> and_where('id', '=', $id)
             -> execute()
-            -> as_array();
+            -> current();
 
-        if (empty($result)) {
-            return null;
-        }
-        return $result[0];
+        return $result ?: null;
     }
 
-    public static function create_note($user_id, $title, $content)
+    public static function create_for_user($user_id, $title, $content)
     {
-        // DBに新しいノートを挿入
-        $result = DB::insert('notes')
-            ->set(array(
-                'user_id' => $user_id,
-                'title' => $title,
-                'content' => $content,
+        list($id, $rows) = DB::insert('notes')
+            ->set([
+                'user_id'    => $user_id,
+                'title'      => $title,
+                'content'    => $content,
                 'created_at' => \Date::forge()->get_timestamp(),
                 'updated_at' => \Date::forge()->get_timestamp(),
-            ))
+            ])
             ->execute();
 
-        // 挿入が成功したかどうかを確認
-        return $result[1] > 0; // $result[1]は挿入された行数
+        // 挿入件数が1以上なら Note オブジェクトを返す
+        if ($rows > 0) {
+            return static::find($id);
+        }
+
+        return null;
     }
 
     public static function update_note($user_id, $note_id, $title, $content)

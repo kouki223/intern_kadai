@@ -9,5 +9,5 @@
     
     <button type="submit">登録</button>
 </form>
-
-<p>既にアカウントをお持ちですか？ <a href="users/login">ログインはこちら</a></p>
+<br />
+<p>既にアカウントをお持ちですか？ <a href="<?php echo Uri::create('users/login'); ?>">ログインはこちら</a></p>
