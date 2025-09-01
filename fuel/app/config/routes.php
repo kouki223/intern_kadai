@@ -2,19 +2,22 @@
 return array(
 	// ルーティング設定
 	'_root_' => 'notes/index', // デフォルトのルート
-	//ノート機能のルーティングとユーザー機能におけるルーティングを準備する
-	//Viewが必要になるルーティングとViewの必要ないルーティングが存在する
 
 	//ユーザー機能関連
-	'users/login' => 'users/login',// ログイン画面
+	'users/login' => 'users/login',
 	'users/check_email' => 'users/check_email',
-	'users/password_login' => 'users/password_login',// パスワードログイン処理
-	'users/register' => 'users/register',// ユーザー登録画面
-	'users/create' => 'users/create',// ユーザー登録処理
-	'logout'   => 'users/logout',// ログアウト処理
+	'users/password_login' => 'users/password_login',
+	'users/register' => 'users/register',
+	'users/create' => 'users/create',
+	'logout'   => 'users/logout',
 
-	//ノート機能関連
-	'notes' => 'notes/index',
-    'notes/view/(:num)' => 'notes/view/$1',
+	//ノート機能関連（View用）
+	'notes/index' => 'notes/index',
+    'notes/create_note' => 'notes/create_note',
+    'notes/detail/(:num)' => 'notes/detail/$1',
+
+    //ノート機能関連（API用）
+    'notes/api/notes' => 'notes/api_notes',
+    'notes/api/delete_note' => 'notes/api_delete_note',
 );
 ?>

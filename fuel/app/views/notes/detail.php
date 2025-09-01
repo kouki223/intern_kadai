@@ -1,1 +1,71 @@
-<h1>ノート詳細ページ</h1>
+<!DOCTYPE html>
+<html lang="ja">
+    <body
+        data-bind="event: { keydown: handleKeydown }"
+        data-page="note-detail"
+    >
+        <div class="container-fluid mt-3">
+            <!-- 自動保存ステータス -->
+            <div data-bind="visible: saveStatusText(), css: saveStatusClass" class="auto-save-status">
+                <span data-bind="text: saveStatusText"></span>
+            </div>
+
+            <!-- ヘッダー -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <button class="btn btn-outline-secondary" data-bind="click: goBack">
+                    ← ノート一覧に戻る
+                </button>
+                <div>
+                    <span class="text-muted me-3" data-bind="text: 'Last Updated: ' + updatedAt()"></span>
+                        <button class="btn btn-outline-primary btn-sm me-2" data-bind="click: manualSave">
+                            手動保存 (Ctrl+S)
+                        </button>
+                    <button class="btn btn-outline-danger btn-sm" data-bind="click: deleteNote">
+                        削除
+                    </button>
+                </div>
+            </div>
+
+            <!-- エラーメッセージ -->
+            <div data-bind="visible: errorMessage()" class="alert alert-danger">
+                <span data-bind="text: errorMessage"></span>
+            </div>
+
+            <!-- ローディング -->
+            <div data-bind="visible: isLoading()" class="text-center py-5">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">読み込み中...</span>
+                </div>
+            </div>
+
+            <!-- ノート編集エリア -->
+            <div data-bind="visible: !isLoading()" class="row">
+                <div class="col-12">
+                    <!-- タイトル入力 -->
+                    <input
+                        type="text" 
+                        data-bind="value: title, valueUpdate: 'input'"
+                        class="form-control note-title mb-3" 
+                        placeholder="ノートのタイトルを入力..."
+                    >
+                    </input>
+                    
+                    <!-- コンテンツ入力 -->
+                    <textarea
+                        data-bind="value: content, valueUpdate: 'input'" 
+                        class="form-control note-content" 
+                        placeholder="ここにノートの内容を入力してください...自動保存機能により、入力した内容は自動的に保存されます。Ctrl+S で手動保存も可能です。"
+                    >
+                    </textarea>
+                </div>
+            </div>
+
+            <!-- 使用方法のヒント -->
+            <div class="mt-3">
+                <small class="text-muted">
+                    💡 ヒント: 内容は自動的に保存されます。Ctrl+S で手動保存も可能です。
+                </small>
+            </div>
+        </div>
+    </body>
+</html>
