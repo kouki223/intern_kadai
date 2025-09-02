@@ -118,20 +118,29 @@ class Controller_Users extends Controller_Base
         $username = Input::post('username');
         $password = Input::post('password');
 
-        if (Model_User::create_user($username, $password)) {
-            if (Auth::login($username, $password)) {
-                return Response::redirect('/notes/index');
+        try {
+            
+            $user_id = Model_User::create_user($username, $password); 
+            
+            if ($user_id) {
+                if (Auth::login($username, $password)) {
+                    return Response::redirect('/notes/index');
+                } else {
+                    return Response::forge(json_encode([
+                        'success' => false,
+                        'message' => '自動ログインに失敗しました。'
+                    ]))->set_header('Content-Type', 'application/json');
+                }
             } else {
                 return Response::forge(json_encode([
                     'success' => false,
-                    'message' => '自動ログインに失敗しました。'
+                    'message' => 'ユーザー登録に失敗しました。'
                 ]))->set_header('Content-Type', 'application/json');
             }
-        }else {
-            return Response::forge(json_encode([
-                'success' => false,
-                'message' => '新規登録に失敗しました。'
-            ]))->set_header('Content-Type', 'application/json');
+        } catch (\Exception $e) {
+            \Session::set_flash('error', 'ユーザー名はすでに使われています');
+
+            return \Response::redirect('/users/register');
         }
     }
 
