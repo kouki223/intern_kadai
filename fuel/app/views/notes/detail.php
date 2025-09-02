@@ -41,16 +41,14 @@
             <!-- ノート編集エリア -->
             <div data-bind="visible: !isLoading()" class="row">
                 <div class="col-12">
-                    <!-- タイトル入力 -->
+                    <!-- タイトル -->
                     <input
                         type="text" 
                         data-bind="value: title, valueUpdate: 'input'"
                         class="form-control note-title mb-3" 
                         placeholder="ノートのタイトルを入力..."
                     >
-                    </input>
-                    
-                    <!-- コンテンツ入力 -->
+                    <!-- ノート内容 -->
                     <textarea
                         data-bind="value: content, valueUpdate: 'input'" 
                         class="form-control note-content" 
@@ -60,7 +58,6 @@
                 </div>
             </div>
 
-            <!-- 使用方法のヒント -->
             <div class="mt-3">
                 <small class="text-muted">
                     💡 ヒント: 内容は自動的に保存されます。Ctrl+S で手動保存も可能です。

@@ -214,8 +214,6 @@ function NoteDetailViewModel(noteId) {
     self.errorMessage = ko.observable("");
     self.saveStatus = ko.observable("");
     self.lastSaveTime = ko.observable("");
-
-    // 自動保存に関連するプロパティ
     self.autoSaveTimeout = null;
     self.isInitialized = false;
 
@@ -265,6 +263,41 @@ function NoteDetailViewModel(noteId) {
             }
         })
         // 画面の状態を戻す
+        .finally(() => {
+            self.isLoading(false);
+        });
+    };
+
+    // ノート一覧に戻る関数
+    self.goBack = function() {
+        window.location.href = "/notes/index";
+    };
+
+    // ノートの削除
+    self.deleteNote = function()
+    {
+        if (!confirm("このノートを削除しますか？")) return;
+
+        self.isLoading(true);
+
+        fetch("/notes/api/delete_note", {
+            method: "POST", // FuelPHP が DELETE 非対応なら POST でOK
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ id: noteId })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                alert("削除しました");
+                // 配列から remove ではなく一覧ページへ戻す
+                window.location.href = "/notes/index";
+            } else {
+                self.errorMessage(data.message || "ノートの削除に失敗しました");
+            }
+        })
+        .catch(() => {
+            self.errorMessage("通信エラーが発生しました");
+        })
         .finally(() => {
             self.isLoading(false);
         });
@@ -370,41 +403,6 @@ function NoteDetailViewModel(noteId) {
         self.saveNote();
     };
 
-    // ノート一覧に戻る関数
-    self.goBack = function() {
-        window.location.href = "/notes/index";
-    };
-
-    // ノートの削除
-    self.deleteNote = function()
-    {
-        if (!confirm("このノートを削除しますか？")) return;
-
-        self.isLoading(true);
-
-        fetch("/notes/api/delete_note", {
-            method: "POST", // FuelPHP が DELETE 非対応なら POST でOK
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams({ id: noteId })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                alert("削除しました");
-                // 配列から remove ではなく一覧ページへ戻す
-                window.location.href = "/notes/index";
-            } else {
-                self.errorMessage(data.message || "ノートの削除に失敗しました");
-            }
-        })
-        .catch(() => {
-            self.errorMessage("通信エラーが発生しました");
-        })
-        .finally(() => {
-            self.isLoading(false);
-        });
-    };
-
     // キーボードショートカットによってeventを受け取る
     self.handleKeydown = function(data, event) {
         // CtrlはctrlKey,SはkeyCode === 83になり、両方が押された場合に手動保存を実行する
@@ -451,7 +449,7 @@ function NoteDetailViewModel(noteId) {
     self.init();
 }
 
-// ページ読み込みをした際にpage属性に応じてViewModelを適用
+// ページ読み込みをした際にpage属性に応じてViewModelを適用する------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function() {
     var page = document.body.getAttribute("data-page");
 
