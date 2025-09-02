@@ -2,6 +2,12 @@
         <div class="form-container">
             <h1>新規登録</h1>
 
+            <?php if (Session::get_flash('error')): ?>
+                <div class="alert alert-danger">
+                    <?= Session::get_flash('error'); ?>
+                </div>
+            <?php endif; ?>
+
             <form action="<?php echo Uri::create('users/create'); ?>" method="post">
                 <div class="form-group">
                     <label for="username">ユーザー名:</label>
