@@ -173,9 +173,8 @@ class Controller_Notes extends Controller_Base
             )), 404)->set_header('Content-Type', 'application/json');
         }
     }
-    /**
-     * API: ノート更新（自動保存用）
-     */
+
+    // ノート更新
     public function put_api_update($id = null)
     {
         $this->is_api_request = true;
