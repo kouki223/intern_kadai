@@ -32,18 +32,15 @@ class Model_Note extends \Orm\Model
 
     public static function find_by_user_and_id($user_id, $id)
     {
-        // DBから指定されたユーザーIDとノートIDに一致する最初のノートを検索して返す
-        $result = DB::SELECT('id', 'user_id', 'title', 'content', 'created_at', 'updated_at')
-            -> from('notes')
-            -> where('user_id', '=', $user_id)
-            -> and_where('id', '=', $id)
-            -> execute()
-            -> current();
-
-        return $result ?: null;
+        return self::find('first', [
+            'where' => [
+                ['user_id', $user_id],
+                ['id', $id],
+            ]
+        ]);
     }
 
-    public static function create_for_user($user_id, $title, $content)
+    public static function create_for_note($user_id, $title, $content)
     {
         list($id, $rows) = DB::insert('notes')
             ->set([

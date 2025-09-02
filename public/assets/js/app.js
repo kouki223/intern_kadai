@@ -373,7 +373,10 @@ function NoteDetailViewModel(noteId) {
                 self.saveStatus("saved");
                 // 更新日時と最後の保存時間を更新
                 self.updatedAt(data.updated_at);
-                self.lastSaveTime(new Date().toLocaleTimeString());
+                self.lastSaveTime(new Date(data.updated_at * 1000).toLocaleTimeString());
+            
+                // ノートの状態をリロード
+                self.loadNote();
                 
                 // 5秒後に保存状態をクリア
                 setTimeout(function() {
@@ -394,7 +397,7 @@ function NoteDetailViewModel(noteId) {
         });
     };
 
-    // 手動保存やCtrl+Sを実行した際に実行される関数
+    // 手動保存を実行した際に実行される関数
     self.manualSave = function() {
         // 自動保存がスケジュールされている場合にはクリアして即座に保存を実行する
         if (self.autoSaveTimeout) {
@@ -402,20 +405,6 @@ function NoteDetailViewModel(noteId) {
         }
         // 自動保存がスケジュールされていなければ保存を実行
         self.saveNote();
-    };
-
-    // キーボードショートカットによってeventを受け取る
-    self.handleKeydown = function(data, event) {
-        // CtrlはctrlKey,SはkeyCode === 83になり、両方が押された場合に手動保存を実行する
-        if (event.ctrlKey && event.keyCode === 83) {
-            // 既定のブラウザの動作をキャンセル
-            event.preventDefault();
-            // 保存を実行
-            self.manualSave();
-            // これ以上の処理を防ぐ
-            return false;
-        }
-        return true;
     };
 
     // オブザーバルで管理されているsaveStatusに応じて表示するテキストを変更する計算済みのプロパティ
