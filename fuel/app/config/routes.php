@@ -19,5 +19,6 @@ return array(
     //ノート機能関連（API用）
     'notes/api/notes' => 'notes/api_notes',
     'notes/api/delete_note' => 'notes/api_delete_note',
+	'notes/api/update/(:num)' => 'notes/api_update/$1',
 );
 ?>

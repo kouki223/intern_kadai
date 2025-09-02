@@ -54,7 +54,7 @@ class Controller_Notes extends Controller_Base
             $title = Input::post('title', '新しいノート');
             $content = Input::post('content', '');
 
-            $note = Model_Note::create_for_user($user_id, $title, $content);
+            $note = Model_Note::create_for_note($user_id, $title, $content);
 
             return Response::forge(json_encode(array(
                 'success' => true,
@@ -188,46 +188,33 @@ class Controller_Notes extends Controller_Base
             $note = Model_Note::find_by_user_and_id($user_id, $id);
 
             if (!$note) {
-                throw new Exception('ノートが見つかりません');
+                Log::error("Note not found for user_id=$user_id, note_id=$id");
+                return Response::forge(json_encode([
+                    'success' => false,
+                    'message' => 'ノートが見つかりません'
+                ]), 404)->set_header('Content-Type', 'application/json');
             }
 
-            // PUT/PATCHデータの取得
-            $input = file_get_contents('php://input');
-            $data = json_decode($input, true);
-            if (!$data) {
-                parse_str($input, $data); // x-www-form-urlencoded fallback
-            }
+            $title = Input::put('title', null);
+            $content = Input::put('content', null);
 
-            // モデルに更新処理を実装しているならそれを利用
-            if (method_exists($note, 'update_content')) {
-                $note->update_content($data);
-            } else {
-                if (isset($data['title'])) {
-                    $note->title = $data['title'];
-                }
-                if (isset($data['content'])) {
-                    $note->content = $data['content'];
-                }
-                $note->updated_at = \Date::forge()->get_timestamp();
-                $note->save();
-            }
+            if ($title !== null) $note->title = $title;
+            if ($content !== null) $note->content = $content;
 
-            // 保存後の更新日時を取得
-            $note->reload();
+            $note->save();
 
-            return Response::forge(json_encode(array(
+            return Response::forge(json_encode([
                 'success' => true,
                 'message' => '保存しました',
-                'updated_at' => $note->get_formatted_updated_at()
-            )), 200)->set_header('Content-Type', 'application/json');
-
+                'updated_at' => $note->updated_at
+            ]), 200)->set_header('Content-Type', 'application/json');
         } catch (Exception $e) {
             Log::error('Note update error: ' . $e->getMessage());
 
-            return Response::forge(json_encode(array(
+            return Response::forge(json_encode([
                 'success' => false,
                 'message' => $e->getMessage()
-            )), 500)->set_header('Content-Type', 'application/json');
+            ]), 500)->set_header('Content-Type', 'application/json');
         }
     }
 }

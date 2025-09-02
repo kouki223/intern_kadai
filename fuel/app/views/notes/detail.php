@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
     <body
-        data-bind="event: { keydown: handleKeydown }"
         data-page="note-detail"
     >
         <div class="container-fluid mt-3">
@@ -11,14 +10,14 @@
             </div>
 
             <!-- ヘッダー -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
                 <button class="btn btn-outline-secondary" data-bind="click: goBack">
                     ← ノート一覧に戻る
                 </button>
                 <div>
                     <span class="text-muted me-3" data-bind="text: 'Last Updated: ' + updatedAt()"></span>
                         <button class="btn btn-outline-primary btn-sm me-2" data-bind="click: manualSave">
-                            手動保存 (Ctrl+S)
+                            手動保存
                         </button>
                     <button class="btn btn-outline-danger btn-sm" data-bind="click: deleteNote">
                         削除
@@ -60,7 +59,7 @@
 
             <div class="mt-3">
                 <small class="text-muted">
-                    💡 ヒント: 内容は自動的に保存されます。Ctrl+S で手動保存も可能です。
+                    💡 ヒント: 内容は自動的に保存されます。ボタンクリックで手動保存も可能です。
                 </small>
             </div>
         </div>
