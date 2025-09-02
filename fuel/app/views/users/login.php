@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<script>
+    window.csrfToken = '<?php echo \Security::fetch_token(); ?>';
+</script>
+
 <header>
 <style>
         /* メインコンテンツエリア */
