@@ -61,3 +61,4 @@ WARNING - 2025-09-02 12:38:03 --> Fuel\Core\Fuel::init - The configured locale j
 WARNING - 2025-09-02 12:38:25 --> Fuel\Core\Fuel::init - The configured locale null is not installed on your system.
 WARNING - 2025-09-02 12:38:25 --> Fuel\Core\Fuel::init - The configured locale null is not installed on your system.
 WARNING - 2025-09-02 12:38:25 --> Fuel\Core\Fuel::init - The configured locale null is not installed on your system.
+ERROR - 2025-09-02 12:55:35 --> Note deletion error: ノートが見つかりません

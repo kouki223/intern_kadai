@@ -376,37 +376,32 @@ function NoteDetailViewModel(noteId) {
     };
 
     // ノートの削除
-    self.deleteNote = function() {
-        // OK/Cancelのダイアログでtrue/falseを取得
-        if (!confirm("このノートを削除しますか？")) {
-            return;
-        }
+    self.deleteNote = function()
+    {
+        if (!confirm("このノートを削除しますか？")) return;
 
-        // ノート詳細ページを見ているnoteIdを受け取りURLに含めてDELETEリクエストを送信
-        fetch("/notes/api/delete/" + self.noteId, {
-            method: "DELETE",
-            headers: {
-                "X-Requested-With": "XMLHttpRequest"
-            }
+        self.isLoading(true);
+
+        fetch("/notes/api/delete_note", {
+            method: "POST", // FuelPHP が DELETE 非対応なら POST でOK
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ id: noteId })
         })
-        .then(res => {
-            // HTTPレスポンスをチェックしてからJSONを返す
-            if (!res.ok) {
-                throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-            }
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
             if (data.success) {
-                alert("ノートを削除しました");
+                alert("削除しました");
+                // 配列から remove ではなく一覧ページへ戻す
                 window.location.href = "/notes/index";
             } else {
-                self.errorMessage(data.message || "削除に失敗しました");
+                self.errorMessage(data.message || "ノートの削除に失敗しました");
             }
         })
-        .catch(err => {
-            console.error("Delete note error:", err);
-            self.errorMessage("削除中にエラーが発生しました");
+        .catch(() => {
+            self.errorMessage("通信エラーが発生しました");
+        })
+        .finally(() => {
+            self.isLoading(false);
         });
     };
 
