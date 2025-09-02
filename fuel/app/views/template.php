@@ -33,7 +33,9 @@
     <body data-page="<?php echo $page ?? ''; ?>">
         <header>
             <div class="container">
-                <h1>Noteアプリケーション</h1>
+                <a href="<?php echo Uri::create('notes/index'); ?>" style="color: inherit; text-decoration: none;">
+                    <h1>Noteアプリケーション</h1>
+                </a>
                 <nav>
                     <ul>
                         <li><a href="<?php echo Uri::create('users/login'); ?>">ログイン</a></li>

@@ -59,6 +59,13 @@ class Controller_Users extends Controller_Base
         $this->is_api_request = true;
 
     try {
+        if (!\Security::check_token()) {
+            return Response::forge(json_encode([
+                'success' => false,
+                'message' => '不正なリクエストです'
+            ]))->set_header('Content-Type', 'application/json');
+        }
+
         $username = Input::post('username');
         $password = Input::post('password');
         $hashed_input = Auth::instance()->hash_password($password);

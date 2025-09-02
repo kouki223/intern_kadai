@@ -47,7 +47,8 @@ function LoginViewModel() {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams({
                 username: self.username(),
-                password: self.password()
+                password: self.password(),
+                fuel_csrf_token: window.csrfToken // CSRFトークンを追加
             })
         })
         .then(res => {
