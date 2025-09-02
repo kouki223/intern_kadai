@@ -63,3 +63,92 @@ Dockerの基本的な概念については、以下のリンクを参考にし�
 - **ユーザー名**: `root`
 - **パスワード**: `root`
 - **データベース名**: 各自設定した名前
+
+**DB作成時のクエリ**
+- 用意するDB名：memoapp
+   - テーブル
+      - users
+         - id(各ユーザーを識別する一意な整数):int
+            - PRIMARY KEY
+            - NOT NULL制約
+               - NULLを許可しない
+            - Default
+               -  NULL
+            - auto_increment
+         - username(ユーザーの名前):varchar(100)
+            - NOT NULL制約
+               - NULLを許可しない
+         - password(ユーザーのパスワード):varchar(255)
+            - Default
+               -  NULL
+            - NOT NULL制約
+               - NULLを許可しない
+         - created_at:datetime
+            - NULLは許可
+            - DEFAULT_GENERATED
+         - updated_at:datetime
+            - NULLは許可
+            - DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+         - login_hash:varchar(255)
+            - NULLは許可
+            - Default
+               -  NULL
+         - last_login:int
+            - NULLは許可
+            - Default
+               -  NULL
+      - notes
+         - id(各ノートを識別する一意な整数):int
+            - NOT NULL制約
+               - NULLを許可しない
+            - Default
+               -  NULL
+            - auto_increment
+         - user_id(ユーザーをnotesテーブルにおいても一意に認識するためのカラム):int
+            - NOT NULL制約
+               - NULLを許可しない
+            - Default
+               -  NULL
+         - title(ノートの見出し):varchar(255)
+            - Default
+               -  NULL
+            - NULLは許可
+         - content(ノート内部の内容):text
+            - Default
+               -  NULL
+            - NULLは許可
+         - created_at(ノート作成日):int
+            - Default
+               -  NULL
+            - NULLは許可
+         - updated_at(ノートの最終更新日):int
+            - Default
+               -  NULL
+            - NULLは許可
+- クエリ
+   - notesテーブル
+      ```
+      CREATE TABLE 'notes' (
+         `id` INT NOT NULL AUTO_INCREMENT,
+         `user_id` INT NOT NULL,
+         `title` VARCHAR(255) DEFAULT NULL,
+         `content` TEXT DEFAULT NULL,
+         `created_at` INT DEFAULT NULL,
+         `updated_at` INT DEFAULT NULL,
+         PRIMARY KEY (`id`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+      ```
+   - usersテーブル
+      ```
+      CREATE TABLE `users` (
+         `id` INT NOT NULL AUTO_INCREMENT,
+         `password` VARCHAR(255) NOT NULL,
+         `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+         `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+         `username` VARCHAR(100) NOT NULL UNIQUE,
+         `last_login` INT DEFAULT NULL,
+         `login_hash` VARCHAR(255) DEFAULT NULL,
+         `email` VARCHAR(100) DEFAULT NULL,
+         PRIMARY KEY (`id`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+      ```
