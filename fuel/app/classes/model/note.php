@@ -4,7 +4,7 @@ use Auth\Auth;
 
 class Model_Note extends \Orm\Model
 {
-    //　静的オブジェクトの定義
+
     protected static $_properties = array(
         'id',
         'user_id',
@@ -16,7 +16,6 @@ class Model_Note extends \Orm\Model
 
     public static function find_by_user($user_id)
     {
-        // DBから指定されたユーザーIDに一致するノートを検索して配列で返す
         $result = DB::SELECT('id', 'user_id', 'title', 'content', 'created_at', 'updated_at')
             -> from('notes')
             -> where('user_id', '=', $user_id)
@@ -51,8 +50,7 @@ class Model_Note extends \Orm\Model
                 'updated_at' => \Date::forge()->get_timestamp(),
             ])
             ->execute();
-
-        // 挿入件数が1以上なら Note オブジェクトを返す
+            
         if ($rows > 0) {
             return static::find($id);
         }
@@ -62,7 +60,6 @@ class Model_Note extends \Orm\Model
 
     public static function update_note($user_id, $note_id, $title, $content)
     {
-        // DBの指定されたノートを更新
         $result = DB::update('notes')
             ->set(array(
                 'title' => $title,
@@ -73,20 +70,17 @@ class Model_Note extends \Orm\Model
             ->and_where('id', '=', $note_id)
             ->execute();
 
-        // 更新が成功したかどうかを確認
-        return $result > 0; // 更新された行数を返す
+        return $result > 0;
     }
 
     public static function delete_note($user_id, $note_id)
     {
-        // DBから指定されたノートを削除
         $result = DB::delete('notes')
             ->where('user_id', '=', $user_id)
             ->and_where('id', '=', $note_id)
             ->execute();
 
-        // 削除が成功したかどうかを確認
-        return $result > 0; // 削除された行数を返す
+        return $result > 0;
     }
 
 }

@@ -13,12 +13,10 @@
         </div>
     </div>
 
-    <!-- 新規ノート入力フォーム -->
     <div data-bind="visible: isCreatingNote" class="mb-4">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="ノートタイトルを入力"
                    data-bind="value: newNoteTitle, valueUpdate: 'afterkeydown'">
-            <!-- ボタンをクリックした時にhasFocusが外れてしまう事でcreate_noteが呼ばれなくなるのを防ぐ -->
             <button type="button" class="btn btn-success" data-bind="click: createNewNote, enable: newNoteTitle">
                 作成
             </button>
@@ -28,26 +26,25 @@
         </div>
     </div>
 
-    <!-- エラーメッセージ -->
     <div data-bind="visible: errorMessage()" class="alert alert-danger">
         <span data-bind="text: errorMessage"></span>
     </div>
 
-    <!-- ローディング -->
     <div data-bind="visible: isLoading()" class="text-center">
         <div class="spinner-border" role="status">
             <span class="visually-hidden">読み込み中...</span>
         </div>
     </div>
 
-    <!-- ノート一覧 -->
     <div data-bind="visible: hasNotes() && !isLoading()" class="row">
         <!-- ko foreach: notes -->
         <div class="col-md-6 col-lg-4 mb-3">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title" data-bind="text: title, click: $parent.goToDetail" 
-                        style="cursor: pointer; color: #0d6efd;"></h5>
+                    <h5 class="card-title"
+                        data-bind="text: title, click: $parent.goToDetail" 
+                        style="cursor: pointer; color: #0d6efd;"
+                    ></h5>
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-sm btn-outline-danger" 
@@ -60,7 +57,6 @@
         <!-- /ko -->
     </div>
 
-    <!-- ノートなし -->
     <div data-bind="visible: !hasNotes() && !isLoading()" class="text-center py-5">
         <p class="text-muted">まだノートがありません</p>
         <button class="btn btn-primary" data-bind="click: startCreatingNote">
