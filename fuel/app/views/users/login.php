@@ -143,7 +143,6 @@
 
 <div class="main-content">
         <div class="login-container">
-            <!-- ユーザー名入力ステップ -->
             <div class="login-step" data-bind="visible: step() === 'username'">
                 <h2>ログイン</h2>
                 <input type="text" data-bind="value: username" placeholder="ユーザー名">
@@ -151,7 +150,6 @@
                 <p class="error-message" data-bind="text: errorMessage, visible: errorMessage"></p>
             </div>
 
-            <!-- パスワード入力ステップ -->
             <div class="login-step" data-bind="visible: step() === 'password'">
                 <h2>ログイン</h2>
                 <div class="username-display" data-bind="text: username"></div>

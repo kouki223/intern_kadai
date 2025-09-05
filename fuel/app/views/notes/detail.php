@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <body
-        data-page="note-detail"
-    >
+    <body data-page="note-detail">
         <div class="container-fluid mt-3">
-            <!-- 自動保存ステータス -->
             <div data-bind="visible: saveStatusText(), css: saveStatusClass" class="auto-save-status">
                 <span data-bind="text: saveStatusText"></span>
             </div>
 
-            <!-- ヘッダー -->
             <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
                 <button class="btn btn-outline-secondary" data-bind="click: goBack">
                     ← ノート一覧に戻る
@@ -25,29 +21,24 @@
                 </div>
             </div>
 
-            <!-- エラーメッセージ -->
             <div data-bind="visible: errorMessage()" class="alert alert-danger">
                 <span data-bind="text: errorMessage"></span>
             </div>
 
-            <!-- ローディング -->
             <div data-bind="visible: isLoading()" class="text-center py-5">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">読み込み中...</span>
                 </div>
             </div>
 
-            <!-- ノート編集エリア -->
             <div data-bind="visible: !isLoading()" class="row">
                 <div class="col-12">
-                    <!-- タイトル -->
                     <input
                         type="text" 
                         data-bind="value: title, valueUpdate: 'input'"
                         class="form-control note-title mb-3" 
                         placeholder="ノートのタイトルを入力..."
                     >
-                    <!-- ノート内容 -->
                     <textarea
                         data-bind="value: content, valueUpdate: 'input'" 
                         class="form-control note-content" 

@@ -38,19 +38,15 @@ class Controller_Users extends Controller_Base
                     ];
                 }
             }
-            // JSONレスポンスを返す
             return Response::forge(json_encode($response))
                 ->set_header('Content-Type', 'application/json')
                 ->set_header('Cache-Control', 'no-cache');
         }
-        catch (Exception $e){
-        // エラーログを出力
-            Log::error('Check userame error: ' . $e->getMessage());
-        
-        return Response::forge(json_encode([
-            'success' => false,
-            'message' => 'サーバーエラーが発生しました'
-        ]))->set_header('Content-Type', 'application/json');
+        catch (Exception $e){     
+            return Response::forge(json_encode([
+                'success' => false,
+                'message' => 'サーバーエラーが発生しました'
+            ]))->set_header('Content-Type', 'application/json');
         }
     }
 
@@ -72,7 +68,6 @@ class Controller_Users extends Controller_Base
 
         $user = Model_User::find_by_username($username);
 
-        // emailの存在確認
         if ($user) {
             $stored_password = $user['password'];
 
@@ -85,14 +80,12 @@ class Controller_Users extends Controller_Base
                     'redirect' => Uri::create('/notes/index')
                 ]))->set_header('Content-Type', 'application/json');
             } else {
-                // パスワード不一致
                 return Response::forge(json_encode([
                     'success' => false,
                     'message' => 'パスワードが正しくありません。'
                 ]))->set_header('Content-Type', 'application/json');
             }
         } else {
-            // ユーザーが存在しない
             return Response::forge(json_encode([
                 'success' => false,
                 'message' => 'メールアドレスが登録されていません。'
@@ -100,9 +93,6 @@ class Controller_Users extends Controller_Base
         }
         }
         catch (Exception $e) {
-            // エラーログを出力
-            Log::error('Login error: ' . $e->getMessage());
-
             return Response::forge(json_encode([
                 'success' => false,
                 'message' => 'サーバーエラーが発生しました'
@@ -146,7 +136,6 @@ class Controller_Users extends Controller_Base
             }
         } catch (\Exception $e) {
             \Session::set_flash('error', 'ユーザー名はすでに使われています');
-
             return \Response::redirect('/users/register');
         }
     }

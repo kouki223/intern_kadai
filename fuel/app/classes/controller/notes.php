@@ -6,15 +6,11 @@ class Controller_Notes extends Controller_Base
     {
         parent::before();
         
-        // ログインチェック
         if (!Auth::check()) {
             Response::redirect('users/login');
         }
     }
 
-    /**
-     * ノート一覧ページ
-     */
     public function action_index()
     {
         $this->template->title = 'ノート一覧';
@@ -22,7 +18,6 @@ class Controller_Notes extends Controller_Base
         $this->template->page = "notes-index";
     }
 
-    // ノート一覧取得
     public function get_api_notes()
     {
         $this->is_api_request = true;
@@ -44,7 +39,6 @@ class Controller_Notes extends Controller_Base
         }
     }
 
-    // ノート作成
     public function post_create_note()
     {
         $this->is_api_request = true;
@@ -65,9 +59,7 @@ class Controller_Notes extends Controller_Base
                 )
             )))->set_header('Content-Type', 'application/json');
 
-        } catch (Exception $e) {
-            Log::error('Note creation error: ' . $e->getMessage());
-            
+        } catch (Exception $e) {         
             return Response::forge(json_encode(array(
                 'success' => false,
                 'message' => 'ノートの作成に失敗しました'
@@ -75,7 +67,6 @@ class Controller_Notes extends Controller_Base
         }
     }
 
-    // ノート削除
     public function post_api_delete_note()
     {
         $this->is_api_request = true;
@@ -84,12 +75,10 @@ class Controller_Notes extends Controller_Base
             $user_id = Auth::get('id');
             $note_id = Input::post('id');
             
-            // ノートIDを関数から渡されているか確認
             if (!$note_id) {
                 throw new Exception('ノートIDが指定されていません');
             }
             
-            // AuthのユーザーIDとノートのユーザーIDが一致するか確認
             $note = Model_Note::find($note_id);
             if (!$note) {
                 throw new Exception('ノートが見つかりません');
@@ -99,7 +88,6 @@ class Controller_Notes extends Controller_Base
                 throw new Exception('このノートを削除する権限がありません');
             }
             
-            // 削除実行
             $note->delete();
             
             return Response::forge(json_encode([
@@ -108,8 +96,7 @@ class Controller_Notes extends Controller_Base
             ]))->set_header('Content-Type', 'application/json');
             
         } catch (Exception $e) {
-            Log::error('Note deletion error: ' . $e->getMessage());
-            
+
             return Response::forge(json_encode([
                 'success' => false,
                 'message' => $e->getMessage()
@@ -117,7 +104,6 @@ class Controller_Notes extends Controller_Base
         }
     }
 
-    // ノート詳細ページ
     public function action_detail($id = null)
     {
         if (!$id) {
@@ -136,7 +122,6 @@ class Controller_Notes extends Controller_Base
         $this->template->page = "note-detail";
     }
 
-    // ノート詳細取得
     public function get_api_note($id)
     {
         $this->is_api_request = true;
@@ -164,9 +149,7 @@ class Controller_Notes extends Controller_Base
                 )
                 )), 200)->set_header('Content-Type', 'application/json');
 
-        } catch (Exception $e) {
-            Log::error('Note detail error: ' . $e->getMessage());
-            
+        } catch (Exception $e) {     
             return Response::forge(json_encode(array(
                 'success' => false,
                 'message' => $e->getMessage()
@@ -174,7 +157,6 @@ class Controller_Notes extends Controller_Base
         }
     }
 
-    // ノート更新
     public function put_api_update($id = null)
     {
         $this->is_api_request = true;
@@ -188,7 +170,6 @@ class Controller_Notes extends Controller_Base
             $note = Model_Note::find_by_user_and_id($user_id, $id);
 
             if (!$note) {
-                Log::error("Note not found for user_id=$user_id, note_id=$id");
                 return Response::forge(json_encode([
                     'success' => false,
                     'message' => 'ノートが見つかりません'
@@ -209,8 +190,6 @@ class Controller_Notes extends Controller_Base
                 'updated_at' => $note->updated_at
             ]), 200)->set_header('Content-Type', 'application/json');
         } catch (Exception $e) {
-            Log::error('Note update error: ' . $e->getMessage());
-
             return Response::forge(json_encode([
                 'success' => false,
                 'message' => $e->getMessage()
